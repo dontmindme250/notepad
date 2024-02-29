@@ -95,3 +95,39 @@ button:hover {
 #notesList li:last-child {
 	border-bottom: none;
 }
+
+/* media queries to make the notepad more responsive */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .note-entry, .saved-notes {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #noteTitle, #noteArea {
+        width: calc(100% - 20px);
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+    
+    #noteTitle, #noteArea, button {
+        padding: 8px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
