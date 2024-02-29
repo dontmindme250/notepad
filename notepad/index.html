@@ -5,14 +5,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Notepad</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/notepad/style.css">
 </head>
 
 <body>
+	
 	<div class="container">
 		<header>
 			<h1>Notepad</h1>
 		</header>
+		
 		<section class="note-entry">
 			<input type="text" id="noteTitle" placeholder="Note Title"/>
 			<textarea id="noteArea" rows="10" cols="50" placeholder="Start typing your notes here..."></textarea>
@@ -21,13 +23,17 @@
 				<button id="clearBtn">Clear Note</button>
 			</footer>
 		</section>
+		
 		<section class="saved-notes">
 			<h2>Saved Notes</h2>
 			<ul id="notesList">
+				
 				<!-- saved notes will appear here -->
+				
 			</ul>
 		</section>
 	</div>
+	
 	<script src="script.js"></script>
 </body>
 </html>
