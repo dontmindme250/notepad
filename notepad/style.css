@@ -77,6 +77,21 @@ button:hover {
 	margin-bottom: 20px;
 }
 
+.open-note-btn {
+		background-color: #4CAF50;
+		color: white;
+		padding: 3px 7px; 
+		margin-left: 10px; 
+		border: none; 
+		border-radius: 5px;
+		cursor: pointer;
+		transition: background-color 0.3s ease; 
+}
+
+.open-note-btn:hover {
+		background-color: #45a049;
+}
+
 #notesList {
 	list-style-type: none;
 	padding: 0;
