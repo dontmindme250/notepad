@@ -1,24 +1,29 @@
+function formatDoc(cmd, value) {
+    document.execCommand(cmd, false, value);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     displayNotes();
+    setUpEventListeners();
 });
 
-document.getElementById('saveBtn').addEventListener('click', function() {
+function saveNote() {
     const title = document.getElementById('noteTitle').value.trim();
-    const content = document.getElementById('noteArea').value.trim();
+    const content = document.getElementById('noteArea').innerHTML.trim(); 
     
     if (title && content) {
-        saveNote(title, content);
-        document.getElementById('noteTitle').value = '';
-        document.getElementById('noteArea').value = '';
+        const note = { title, content, timestamp: new Date().getTime() };
+        localStorage.setItem(`note-${note.timestamp}`, JSON.stringify(note));
+        clearNote();
+        displayNotes();
     } else {
         alert('Please add both a title and some content to your note.');
     }
-});
+}
 
-function saveNote(title, content) {
-    const note = { title, content, timestamp: new Date().getTime() };
-    localStorage.setItem(`note-${note.timestamp}`, JSON.stringify(note));
-    displayNotes();
+function openNote(note) {
+    document.getElementById('noteTitle').value = note.title;
+    document.getElementById('noteArea').innerHTML = note.content; 
 }
 
 function displayNotes() {
@@ -46,6 +51,22 @@ function displayNotes() {
             notesList.appendChild(noteElement);
         }
     });
+}
+
+function setUpEventListeners() {
+    document.getElementById('saveBtn').addEventListener('click', saveNote);
+
+    document.getElementById('clearBtn').addEventListener('click', clearNote);
+}
+
+function deleteNote(noteKey) {
+    localStorage.removeItem(noteKey);
+    displayNotes();
+}
+
+function clearNote() {
+    document.getElementById('noteTitle').value = '';
+    document.getElementById('noteArea').innerHTML = '';
 }
 
 function openNote(note) {
