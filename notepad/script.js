@@ -36,6 +36,12 @@ function displayNotes() {
             openBtn.classList.add('open-note-btn');
             openBtn.onclick = () => openNote(note);
             noteElement.appendChild(openBtn);
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.classList.add('delete-note-btn');
+            deleteBtn.onclick = () => deleteNote(key);
+            noteElement.appendChild(deleteBtn);
             
             notesList.appendChild(noteElement);
         }
@@ -45,4 +51,16 @@ function displayNotes() {
 function openNote(note) {
     document.getElementById('noteTitle').value = note.title;
     document.getElementById('noteArea').value = note.content;
+}
+
+document.getElementById('clearBtn').addEventListener('click', clearNote);
+
+function clearNote() {
+    document.getElementById('noteTitle').value = '';
+    document.getElementById('noteArea').value = '';
+}
+
+function deleteNote(noteKey) {
+    localStorage.removeItem(noteKey);
+    displayNotes();
 }
