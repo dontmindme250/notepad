@@ -19,10 +19,25 @@
 		<header>
 			<h1>Notepad</h1>
 		</header>
+
+		<div class="toolbar">
+				<button type="button" onclick="formatDoc('bold')">Bold</button>
+				<button type="button" onclick="formatDoc('italic')">Italic</button>
+				<button type="button" onclick="formatDoc('underline')">Underline</button>
+				<button type="button" onclick="formatDoc('insertUnorderedList')">Bulleted List</button>
+				<button type="button" onclick="formatDoc('insertOrderedList')">Numbered List</button>
+				<select onchange="formatDoc('fontSize', this.value); this.selectedIndex = 0;">
+						<option value="">Font Size</option>
+						<option value="1">Small</option>
+						<option value="3">Normal</option>
+						<option value="5">Large</option>
+						<option value="7">Huge</option>
+				</select>
+		</div>
 		
 		<section class="note-entry">
 			<input type="text" id="noteTitle" placeholder="Note Title"/>
-			<textarea id="noteArea" rows="10" cols="50" placeholder="Start typing your notes here..."></textarea>
+			<div id="noteArea" contenteditable="true" class="note-area" placeholder="Start typing your notes here..."></div>
 			<footer>
 				<button id="saveBtn">Save Note</button>
 				<button id="clearBtn">Clear Note</button>
