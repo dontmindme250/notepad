@@ -3,17 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>homepage</title>
-    
-    <script>
-        function redirectUser() {
-            const destinationUrl = "/notepad";
-            window.location.href = destinationUrl;
-        }
-        window.onload = redirectUser;
-    </script>
+    <title>Homepage - Notepad App</title>
+    <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
+
+<div class="homepage-container">
+    <header>
+        <h1>Welcome to the Notepad App</h1>
+        <p>Your simple, secure place to jot down thoughts and ideas.</p>
+    </header>
     
+    <nav>
+        <ul>
+            <li><a href="/notepad">Open Notepad</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="features">
+        <h2>Features</h2>
+        <ul>
+            <li>Easy note-taking</li>
+            <li>Instant save to local storage</li>
+            <li>Accessible anytime, anywhere</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Notepad App &copy; 2023</p>
+    </footer>
+</div>
+
 </body>
 </html>
