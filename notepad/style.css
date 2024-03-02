@@ -1,148 +1,175 @@
 body, html {
-	width: 100%;
-	height: 100%;
-	font-family: 'Roboto', sans-serif;
-	background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
 }
 
 .container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 0 auto;
-	padding: 20px 0; 
-	max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+nav {
+    width: 100%;
+    background-color: #007bff;
+    padding: 10px 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e3f2fd;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.toolbar button,
+.toolbar select {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin-right: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.toolbar select option {
+    background-color: white;
+    color: black;
+}
+
+.toolbar button:hover,
+.toolbar select:hover {
+    background-color: #0056b3;
 }
 
 .note-entry {
-	background: white;
-	border-radius: 8px;
-	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-	padding: 20px;
-	width: 100%;
-}
-
-.note-entry header h1 {
-	margin-bottom: 20px; 
-	text-align: center; 
-	font-size: 24px; 
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 100%;
 }
 
 #noteTitle, #noteArea {
-	width: calc(100% - 40px);
-	padding: 10px;
-	margin: 10px 0;
-	border: solid 1px #ddd;
-	border-radius: 5px;
-	box-sizing: border-box;
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin: 10px 0;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 #noteTitle {
-	font-size: 20px;
+    font-size: 20px;
 }
 
 #noteArea {
-	font-size: 16px;
-	min-height: 150px;
+    font-size: 16px;
+    min-height: 150px;
 }
 
 button {
-	padding: 10px 20px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	font-size: 16px;
-	margin-top: 10px;
-	background-color: #007bff;
-	color: white;
-	transition: background-color 0.3s;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-	background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 .saved-notes {
-	background: white;
-	border-radius: 8px;
-	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-	padding: 20px;
-	width: 100%;
-	margin-top: 20px;
-	overflow-y: auto;
-	max-height: 600px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 100%;
+    margin-top: 20px;
+    overflow-y: auto;
+    max-height: 600px;
 }
 
-.saved-notes h2 {
-	margin-bottom: 20px;
+.saved-notes h2, .note-entry header h1 {
+    color: #333;
 }
 
-.open-note-btn {
-		background-color: #4CAF50;
-		color: white;
-		padding: 3px 7px; 
-		margin-left: 10px; 
-		border: none; 
-		border-radius: 5px;
-		cursor: pointer;
-		transition: background-color 0.3s ease; 
+.open-note-btn, .delete-note-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 3px 7px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
 }
 
-.open-note-btn:hover {
-		background-color: #45a049;
+.open-note-btn:hover, .delete-note-btn:hover {
+    background-color: #45a049;
 }
 
 #notesList {
-	list-style-type: none;
-	padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 #notesList li {
-	border-bottom: solid 1px #eee;
-	padding: 10px;
-	transition: background-color 0.2s;
+    border-bottom: solid 1px #eee;
+    padding: 10px;
+    transition: background-color 0.2s;
 }
 
 #notesList li:hover {
-	background-color: #f9f9f9;
+    background-color: #f9f9f9;
 }
 
-#notesList li:last-child {
-	border-bottom: none;
-}
-
-/* media queries to make the notepad more responsive */
-
+/* Responsive styles */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .note-entry, .saved-notes {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    #noteTitle, #noteArea {
-        width: calc(100% - 20px);
-    }
-
-    button {
+    .toolbar button,
+    .toolbar select {
+        padding: 6px 8px;
         font-size: 14px;
+    }
+
+    #noteTitle, #noteArea, button {
+        width: calc(100% - 20px);
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 5px;
+    .toolbar {
+        flex-direction: column;
+        margin: 10px 0;
     }
-    
-    #noteTitle, #noteArea, button {
-        padding: 8px;
+
+    .toolbar button,
+    .toolbar select {
+        margin: 5px 0;
     }
 
     button {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
